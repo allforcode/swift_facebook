@@ -7,23 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA0C3A891FA4153E00C9BA44 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0C3A881FA4153E00C9BA44 /* FeedCell.swift */; };
+		DA0C3A8B1FA4165900C9BA44 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0C3A8A1FA4165900C9BA44 /* Posts.swift */; };
 		DAB398011FA3D1E300FA8D0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB398001FA3D1E300FA8D0B /* AppDelegate.swift */; };
-		DAB398031FA3D1E300FA8D0B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB398021FA3D1E300FA8D0B /* ViewController.swift */; };
-		DAB398061FA3D1E300FA8D0B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB398041FA3D1E300FA8D0B /* Main.storyboard */; };
+		DAB398031FA3D1E300FA8D0B /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB398021FA3D1E300FA8D0B /* FeedController.swift */; };
 		DAB398091FA3D1E300FA8D0B /* facebook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB398071FA3D1E300FA8D0B /* facebook.xcdatamodeld */; };
 		DAB3980B1FA3D1E300FA8D0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB3980A1FA3D1E300FA8D0B /* Assets.xcassets */; };
 		DAB3980E1FA3D1E300FA8D0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DAB3980C1FA3D1E300FA8D0B /* LaunchScreen.storyboard */; };
+		DAB398161FA3D55D00FA8D0B /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB398151FA3D55D00FA8D0B /* Extentions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA0C3A881FA4153E00C9BA44 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		DA0C3A8A1FA4165900C9BA44 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
 		DAB397FD1FA3D1E300FA8D0B /* facebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = facebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB398001FA3D1E300FA8D0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DAB398021FA3D1E300FA8D0B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DAB398051FA3D1E300FA8D0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DAB398021FA3D1E300FA8D0B /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
 		DAB398081FA3D1E300FA8D0B /* facebook.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = facebook.xcdatamodel; sourceTree = "<group>"; };
 		DAB3980A1FA3D1E300FA8D0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DAB3980D1FA3D1E300FA8D0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DAB3980F1FA3D1E300FA8D0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DAB398151FA3D55D00FA8D0B /* Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +61,14 @@
 			isa = PBXGroup;
 			children = (
 				DAB398001FA3D1E300FA8D0B /* AppDelegate.swift */,
-				DAB398021FA3D1E300FA8D0B /* ViewController.swift */,
-				DAB398041FA3D1E300FA8D0B /* Main.storyboard */,
+				DAB398021FA3D1E300FA8D0B /* FeedController.swift */,
 				DAB3980A1FA3D1E300FA8D0B /* Assets.xcassets */,
 				DAB3980C1FA3D1E300FA8D0B /* LaunchScreen.storyboard */,
 				DAB3980F1FA3D1E300FA8D0B /* Info.plist */,
+				DAB398151FA3D55D00FA8D0B /* Extentions.swift */,
 				DAB398071FA3D1E300FA8D0B /* facebook.xcdatamodeld */,
+				DA0C3A881FA4153E00C9BA44 /* FeedCell.swift */,
+				DA0C3A8A1FA4165900C9BA44 /* Posts.swift */,
 			);
 			path = facebook;
 			sourceTree = "<group>";
@@ -128,7 +134,6 @@
 			files = (
 				DAB3980E1FA3D1E300FA8D0B /* LaunchScreen.storyboard in Resources */,
 				DAB3980B1FA3D1E300FA8D0B /* Assets.xcassets in Resources */,
-				DAB398061FA3D1E300FA8D0B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAB398031FA3D1E300FA8D0B /* ViewController.swift in Sources */,
+				DAB398161FA3D55D00FA8D0B /* Extentions.swift in Sources */,
+				DA0C3A8B1FA4165900C9BA44 /* Posts.swift in Sources */,
+				DA0C3A891FA4153E00C9BA44 /* FeedCell.swift in Sources */,
+				DAB398031FA3D1E300FA8D0B /* FeedController.swift in Sources */,
 				DAB398091FA3D1E300FA8D0B /* facebook.xcdatamodeld in Sources */,
 				DAB398011FA3D1E300FA8D0B /* AppDelegate.swift in Sources */,
 			);
@@ -148,14 +156,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DAB398041FA3D1E300FA8D0B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DAB398051FA3D1E300FA8D0B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DAB3980C1FA3D1E300FA8D0B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -284,7 +284,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.podongchina.youtube.facebook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -299,7 +299,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.podongchina.youtube.facebook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
