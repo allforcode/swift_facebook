@@ -180,3 +180,96 @@ class FeedCell: BaseCell {
     }
     
 }
+
+class RequestCell: BaseCell {
+    
+    var friend: Friend? {
+        didSet {
+            if let name = friend?.name {
+                nameLabel.text = name
+            }
+            
+            if let imageName = friend?.profileImageName {
+                profileImageView.image = UIImage(named: imageName)
+            }
+        }
+    }
+    
+    let profileImageView: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "bill_gates_profile")
+        iv.contentMode = .scaleAspectFit
+        return iv
+    }()
+    
+    let nameLabel: UILabel = {
+        let l = UILabel()
+        l.text = "Bill Gates"
+        l.font = UIFont.boldSystemFont(ofSize: 14)
+        return l
+    }()
+    
+    let confirmButton: UIButton = {
+        return RequestCell.craatButton(title: "Confirm", titleColor: UIColor.white, backgroundColor: UIColor.rgb(red: 102, green: 153, blue: 255))
+    }()
+    
+    let deleteButton: UIButton = {
+        return RequestCell.craatButton(title: "Delete", titleColor: UIColor.gray, backgroundColor: UIColor.white)
+    }()
+    
+    static func craatButton(title: String, titleColor: UIColor, backgroundColor: UIColor) -> UIButton {
+        let b = UIButton()
+        b.setTitle(title, for: .normal)
+        b.backgroundColor = backgroundColor
+        b.setTitleColor(titleColor, for: .normal)
+        b.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        b.layer.cornerRadius = 2
+        b.layer.borderColor = UIColor.lightGray.cgColor
+        b.layer.borderWidth = 1
+        return b
+    }
+    
+    let dividerLineView: UIView = {
+        let v = UIView()
+        v.backgroundColor = UIColor.rgb(red: 226, green: 228, blue: 232)
+        return v
+    }()
+    
+    override func setupViews() {
+        super.setupViews()
+        backgroundColor = UIColor.white
+        
+        addSubview(dividerLineView)
+        addSubview(profileImageView)
+        addSubview(nameLabel)
+        addSubview(confirmButton)
+        addSubview(deleteButton)
+        
+        addConstraints(format: "H:|[v0]|", views: dividerLineView)
+        addConstraints(format: "H:|-16-[v0(60)]-8-[v1]", views: profileImageView, nameLabel)
+        addConstraints(format: "H:|-83-[v0(100)]-4-[v1(100)]", views: confirmButton, deleteButton)
+        
+        addConstraints(format: "V:|[v0(0.5)]-4.75-[v1(60)]-4.75-|", views: dividerLineView, profileImageView)
+        addConstraints(format: "V:|-8-[v0]-8-[v1(28)]", views: nameLabel, confirmButton)
+        addConstraints(format: "V:[v0]-8-[v1(28)]", views: nameLabel, deleteButton)
+    }
+}
+
+class Header: BaseCell{
+    let sectionTitleLabel: UILabel = {
+        let l = UILabel()
+        l.text = "people you may know".uppercased()
+        l.textColor = UIColor.lightGray
+        l.font = UIFont.systemFont(ofSize: 13)
+        return l
+    }()
+    
+    override func setupViews() {
+        super.setupViews()
+        backgroundColor = UIColor(white: 0.95, alpha: 1)
+        
+        addSubview(sectionTitleLabel)
+        addConstraints(format: "H:|-8-[v0]", views: sectionTitleLabel)
+        addConstraint(NSLayoutConstraint(item: sectionTitleLabel, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
+    }
+}

@@ -13,10 +13,9 @@ class CustomTabBarController: UITabBarController {
         super.viewDidLoad()
         let layout = UICollectionViewFlowLayout()
         let feedController = FeedController(collectionViewLayout: layout)
-        
         let navigationController = createController(controller: feedController, title: "News Feed", imageName: "news_feed_icon")
         
-        let friendRequestController = UIViewController()
+        let friendRequestController = FriendRequestController(collectionViewLayout: layout)
         let secondNavigationController = createController(controller: friendRequestController, title: "Requests", imageName: "requests_icon")
         
         let messengerController = UIViewController()

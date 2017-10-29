@@ -1,0 +1,30 @@
+{
+    "requests": [
+         {
+             "name": "Mark Zuckerberg",
+             "profileImageName": "zuckprofile",
+         },
+         {
+             "name": "Steve Job",
+             "profileImageName": "steve_profile",
+         },
+         {
+             "name": "Mahatma Gandhi",
+             "profileImageName": "gandhi_profile",
+         },
+         {
+             "name": "Donald Trump",
+             "profileImageName": "donald_trump_profile",
+         }
+    ],
+    "suggests" : [
+          {
+              "name": "Bill Gates",
+              "profileImageName": "bill_gates_profile",
+          },
+          {
+              "name": "Tim Cook",
+              "profileImageName": "tim-cook",
+          }
+    ]
+}
