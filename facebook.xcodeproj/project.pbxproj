@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		DA0C3A891FA4153E00C9BA44 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0C3A881FA4153E00C9BA44 /* FeedCell.swift */; };
 		DA0C3A8B1FA4165900C9BA44 /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0C3A8A1FA4165900C9BA44 /* Posts.swift */; };
+		DA7F923C1FA526BA00CDEA3B /* UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7F923B1FA526BA00CDEA3B /* UITabBarController.swift */; };
+		DA7F923E1FA52B4F00CDEA3B /* FriendRequestsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7F923D1FA52B4F00CDEA3B /* FriendRequestsController.swift */; };
+		DA7F92401FA5506100CDEA3B /* all_posts.json in Resources */ = {isa = PBXBuildFile; fileRef = DA7F923F1FA5506100CDEA3B /* all_posts.json */; };
+		DA7F92421FA5535500CDEA3B /* single_post.json in Resources */ = {isa = PBXBuildFile; fileRef = DA7F92411FA5535500CDEA3B /* single_post.json */; };
 		DAB398011FA3D1E300FA8D0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB398001FA3D1E300FA8D0B /* AppDelegate.swift */; };
 		DAB398031FA3D1E300FA8D0B /* FeedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB398021FA3D1E300FA8D0B /* FeedController.swift */; };
 		DAB398091FA3D1E300FA8D0B /* facebook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAB398071FA3D1E300FA8D0B /* facebook.xcdatamodeld */; };
@@ -20,6 +24,10 @@
 /* Begin PBXFileReference section */
 		DA0C3A881FA4153E00C9BA44 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		DA0C3A8A1FA4165900C9BA44 /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
+		DA7F923B1FA526BA00CDEA3B /* UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITabBarController.swift; sourceTree = "<group>"; };
+		DA7F923D1FA52B4F00CDEA3B /* FriendRequestsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestsController.swift; sourceTree = "<group>"; };
+		DA7F923F1FA5506100CDEA3B /* all_posts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = all_posts.json; sourceTree = "<group>"; };
+		DA7F92411FA5535500CDEA3B /* single_post.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = single_post.json; sourceTree = "<group>"; };
 		DAB397FD1FA3D1E300FA8D0B /* facebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = facebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB398001FA3D1E300FA8D0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DAB398021FA3D1E300FA8D0B /* FeedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedController.swift; sourceTree = "<group>"; };
@@ -69,6 +77,10 @@
 				DAB398071FA3D1E300FA8D0B /* facebook.xcdatamodeld */,
 				DA0C3A881FA4153E00C9BA44 /* FeedCell.swift */,
 				DA0C3A8A1FA4165900C9BA44 /* Posts.swift */,
+				DA7F923B1FA526BA00CDEA3B /* UITabBarController.swift */,
+				DA7F923D1FA52B4F00CDEA3B /* FriendRequestsController.swift */,
+				DA7F92411FA5535500CDEA3B /* single_post.json */,
+				DA7F923F1FA5506100CDEA3B /* all_posts.json */,
 			);
 			path = facebook;
 			sourceTree = "<group>";
@@ -133,7 +145,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB3980E1FA3D1E300FA8D0B /* LaunchScreen.storyboard in Resources */,
+				DA7F92401FA5506100CDEA3B /* all_posts.json in Resources */,
 				DAB3980B1FA3D1E300FA8D0B /* Assets.xcassets in Resources */,
+				DA7F92421FA5535500CDEA3B /* single_post.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +158,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA7F923C1FA526BA00CDEA3B /* UITabBarController.swift in Sources */,
+				DA7F923E1FA52B4F00CDEA3B /* FriendRequestsController.swift in Sources */,
 				DAB398161FA3D55D00FA8D0B /* Extentions.swift in Sources */,
 				DA0C3A8B1FA4165900C9BA44 /* Posts.swift in Sources */,
 				DA0C3A891FA4153E00C9BA44 /* FeedCell.swift in Sources */,

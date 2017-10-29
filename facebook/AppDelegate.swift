@@ -19,13 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        
-        let layout = UICollectionViewFlowLayout()
-        let feedController = FeedController(collectionViewLayout: layout)
-        let navigationController = UINavigationController(rootViewController: feedController)
-        window?.rootViewController = navigationController
+        window?.rootViewController = CustomTabBarController()
         UINavigationBar.appearance().barTintColor = UIColor.rgb(red: 51, green: 90, blue: 149)
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        UITabBar.appearance().tintColor = UIColor.rgb(red: 70, green: 146, blue: 250)
+        UITabBar.appearance().unselectedItemTintColor = UIColor.rgb(red: 155, green: 161, blue: 171)
         UIApplication.shared.statusBarStyle = .lightContent
         
         return true

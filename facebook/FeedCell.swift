@@ -9,8 +9,14 @@
 import UIKit
 
 class FeedCell: BaseCell {
+    //urlsession has cached images
+    //var imageCache = NSCache<NSString, UIImage>()
     
-    var imageCache = NSCache<NSString, UIImage>()
+    var feedController: FeedController?
+    
+    func handleTab(_ sender: UITapGestureRecognizer){
+        feedController?.animateImageView(imageView: statusImageView)
+    }
     
     var post: Post? {
         didSet {
@@ -46,28 +52,23 @@ class FeedCell: BaseCell {
                 likesCommentsLabel.text = "\(likes) Likes   \(comments) Comments"
             }
             
-            if let statusImageUrl = post?.statusImageUrl {
-                
-                if let image = imageCache.object(forKey: NSString(string: statusImageUrl)) {
-                    self.statusImageView.image = image
-                    self.loader.stopAnimating()
-                }else{
-                    URLSession.shared.dataTask(with: URL(string: statusImageUrl)!, completionHandler: { (data, response, error) in
-                        
-                        if let err = error {
-                            print(err)
-                        }
-                        
-                        let image = UIImage(data: data!)
-                        
-                        self.imageCache.setObject(image!, forKey: NSString(string: statusImageUrl))
-                        
-                        DispatchQueue.main.async {
-                            self.statusImageView.image = image
-                            self.loader.stopAnimating()
-                        }
-                    }).resume()
-                }
+            if let statusImageName = post?.statusImageName {
+                statusImageView.image = UIImage(named: statusImageName)
+                self.loader.stopAnimating()
+            }else if let statusImageUrl = post?.statusImageUrl {
+                URLSession.shared.dataTask(with: URL(string: statusImageUrl)!, completionHandler: { (data, response, error) in
+                    
+                    if let err = error {
+                        print(err)
+                    }
+                    
+                    let image = UIImage(data: data!)
+                    
+                    DispatchQueue.main.async {
+                        self.statusImageView.image = image
+                        self.loader.stopAnimating()
+                    }
+                }).resume()
             }
         }
     }
@@ -84,7 +85,7 @@ class FeedCell: BaseCell {
         iv.image = UIImage(named: "zuckprofile")
         return iv
     }()
-    
+
     let statusTextView: UITextView = {
         let tv = UITextView()
         
@@ -94,8 +95,10 @@ class FeedCell: BaseCell {
     
     let statusImageView: UIImageView = {
         let iv = UIImageView()
+        iv.isUserInteractionEnabled = true
         iv.contentMode = .scaleAspectFill
         iv.layer.masksToBounds = true
+        iv.clipsToBounds = true
         iv.image = UIImage(named: "zuckdog")
         return iv
     }()
@@ -144,6 +147,9 @@ class FeedCell: BaseCell {
         addSubview(commentButton)
         addSubview(shareButton)
         
+        let tabGesture = UITapGestureRecognizer(target: self, action: #selector(handleTab))
+        statusImageView.addGestureRecognizer(tabGesture)
+        
         setupStatusImageViewLoader()
         
         addConstraints(format: "H:|-8-[v0(44)]-8-[v1]|", views: profileImageView, nameLabel)
@@ -154,7 +160,6 @@ class FeedCell: BaseCell {
         
         //equally arranged horizontally
         addConstraints(format: "H:|[v0(v2)][v1(v2)][v2]|", views: likeButton, commentButton, shareButton)
-        
         
         addConstraints(format: "V:|-12-[v0]", views: nameLabel)
         addConstraints(format: "V:|-8-[v0(44)]-4-[v1]-4-[v2(200)]-8-[v3(24)]-8-[v4(1)][v5(44)]|", views: profileImageView, statusTextView, statusImageView, likesCommentsLabel, dividerLineView, likeButton)

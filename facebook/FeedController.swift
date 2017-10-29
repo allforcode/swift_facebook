@@ -18,6 +18,18 @@ class FeedController: UICollectionViewController, UICollectionViewDelegateFlowLa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let path = Bundle.main.path(forResource: "all_posts", ofType: "json"){
+            do {
+                let data  = try (NSData(contentsOfFile: path, options: NSData.ReadingOptions.mappedIfSafe)) as Data
+                
+                let jsonDictionary = try (JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers)) as! [String: [[String: AnyObject]]]
+
+                self.posts.setValuesForKeys(jsonDictionary)
+            } catch let err {
+                print(err)
+            }
+        }
+        
         let memoryCapacity = 500 * 1024 * 1024
         let diskCapacity = 500 * 1024 * 1024
         let diskPath = "myDiskPath"
@@ -38,6 +50,7 @@ class FeedController: UICollectionViewController, UICollectionViewDelegateFlowLa
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! FeedCell
         cell.post = posts[indexPath]
+        cell.feedController = self
         return cell
     }
     
@@ -56,6 +69,54 @@ class FeedController: UICollectionViewController, UICollectionViewDelegateFlowLa
     //when device rotating
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         collectionView?.collectionViewLayout.invalidateLayout()
+    }
+    
+    let blackBackgroundView = UIView()
+    let zoomImageView = UIImageView()
+    
+    var statusImageView: UIImageView?
+    
+    public func animateImageView(imageView: UIImageView){
+        statusImageView = imageView
+        if let startingFrame = imageView.superview?.convert(imageView.frame, to: nil) {
+            imageView.alpha = 0
+            if let keyWindow = UIApplication.shared.keyWindow {
+                blackBackgroundView.frame = keyWindow.frame
+                blackBackgroundView.backgroundColor = UIColor.black
+                blackBackgroundView.alpha = 0
+                keyWindow.addSubview(blackBackgroundView)
+                print("window: \(keyWindow.frame.height), view: \(view.frame.height)")
+                zoomImageView.frame = startingFrame
+                zoomImageView.isUserInteractionEnabled = true
+                zoomImageView.image = imageView.image
+                zoomImageView.contentMode = .scaleAspectFill
+                zoomImageView.clipsToBounds = true
+                keyWindow.addSubview(zoomImageView)
+                
+                zoomImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(zoomOut)))
+                
+                UIView.animate(withDuration: 0.75, animations: {
+                    let height = (self.view.frame.width / startingFrame.width) * startingFrame.height
+                    let y = (self.view.frame.height - startingFrame.height) / 2
+                    self.zoomImageView.frame = CGRect(x: 0, y: y, width: self.view.frame.width, height: height)
+                    self.blackBackgroundView.alpha = 1
+                })
+            }
+
+        }
+    }
+    
+    func zoomOut(){
+        if let startingFrame = statusImageView!.superview?.convert(statusImageView!.frame, to: nil) {
+            UIView.animate(withDuration: 0.75, animations: {
+                self.zoomImageView.frame = startingFrame
+                self.blackBackgroundView.alpha = 0
+            }, completion: { (_) in
+                self.zoomImageView.removeFromSuperview()
+                self.blackBackgroundView.removeFromSuperview()
+                self.statusImageView?.alpha = 1
+            })
+        }
     }
 }
 
